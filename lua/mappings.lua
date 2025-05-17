@@ -91,3 +91,5 @@ end, { desc = 'Select next buffer' })
 vim.keymap.set('n', '<S-tab>', function()
   require('harpoon'):list():next { ui_nav_wrap = true }
 end, { desc = 'Select previous buffer' })
+
+vim.keymap.set('n', '<leader>uv', '<cmd>!uv run %<CR>', { desc = 'Run current file with uv', noremap = false, silent = true })
