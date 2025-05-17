@@ -65,9 +65,12 @@ end, { desc = 'general format file' })
 -- diagnostics
 vim.keymap.set('n', '<leader>ds', vim.diagnostic.setloclist, { desc = 'LSP diagnostic loclist' })
 
--- harpoon mark current buffer
-vim.keymap.set('n', 'm', function()
+-- harpoon mark/unmark current buffer
+vim.keymap.set('n', 'ma', function()
   require('harpoon'):list():add()
+end)
+vim.keymap.set('n', 'md', function()
+  require('harpoon'):list():remove()
 end)
 
 -- harpoon menu
@@ -77,7 +80,8 @@ vim.keymap.set('n', 't', function()
 end)
 
 -- Leader mappings in case I forget the m/t shortcuts
-vim.keymap.set('n', '<leader>mb', ':normal m<cr>', { desc = '[M]ark [B]uffer' })
+vim.keymap.set('n', '<leader>ma', ':normal ma<cr>', { desc = '[M]ark [A]dd Buffer' })
+vim.keymap.set('n', '<leader>md', ':normal md<cr>', { desc = '[M]ark [D]elete Buffer' })
 vim.keymap.set('n', '<leader>mt', ':normal t<cr>', { desc = '[M]ark [T]oggle Menu' })
 
 -- Toggle previous & next buffers stored within harpoon list
